@@ -1,17 +1,12 @@
 import React from "react";
-import { View, Text, FlatList, Pressable, StyleSheet, Alert } from "react-native";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-
-type RootStackParamList = {
-  Locais: undefined;
-  Detalhes: { id: string };
-};
-
-type LocaisNavigationProp = NativeStackNavigationProp<RootStackParamList, "Locais">;
-
-type Props = {
-  navigation: LocaisNavigationProp;
-};
+import {
+  View,
+  Text,
+  FlatList,
+  Pressable,
+  StyleSheet,
+} from "react-native";
+import { useRouter } from "expo-router";
 
 type Local = {
   id: string;
@@ -27,19 +22,18 @@ const pontosTuristicos: Local[] = [
   { id: "6", nome: "Alto da Sé — O Mirante do Frevo e da Fé" },
 ];
 
-export default function Locais({ navigation }: Props) {
+export default function Locais() {
+  const router = useRouter();
+
   const renderItem = ({ item }: { item: Local }) => (
     <View style={styles.itemContainer}>
       <Text style={styles.nome}>{item.nome}</Text>
       <Pressable
         style={({ pressed }) => [
           styles.botao,
-          pressed && { backgroundColor: "#5C3A21" }, // marrom escuro ao pressionar
+          pressed && { backgroundColor: "#5C3A21" },
         ]}
-        onPress={() => {
-          // Navegar para detalhes do local, passando o id
-          navigation.navigate("Detalhes", { id: item.id });
-        }}
+        onPress={() => router.push(`/detalhes/${item.id}`)}
       >
         <Text style={styles.textBotao}>Ver Detalhes</Text>
       </Pressable>
@@ -52,7 +46,18 @@ export default function Locais({ navigation }: Props) {
         data={pontosTuristicos}
         keyExtractor={(item) => item.id}
         renderItem={renderItem}
-        contentContainerStyle={{ paddingBottom: 20 }}
+        contentContainerStyle={styles.listContent}
+        ListFooterComponent={() => (
+          <Pressable
+            style={({ pressed }) => [
+              styles.voltarBotao,
+              pressed && { backgroundColor: "#5C3A21" },
+            ]}
+            onPress={() => router.push("/")}
+          >
+            <Text style={styles.textBotao}>Voltar para a Home</Text>
+          </Pressable>
+        )}
       />
     </View>
   );
@@ -64,28 +69,44 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     padding: 24,
   },
+  listContent: {
+    flexGrow: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    paddingBottom: 40,
+  },
   itemContainer: {
     marginBottom: 20,
     borderBottomWidth: 1,
     borderBottomColor: "#ddd",
     paddingBottom: 12,
+    alignItems: "center",
   },
   nome: {
     fontSize: 18,
     fontWeight: "600",
     marginBottom: 8,
     color: "#2c3e50",
+    textAlign: "center",
   },
   botao: {
     backgroundColor: "#8B5E3C",
     paddingVertical: 12,
     paddingHorizontal: 20,
     borderRadius: 6,
-    alignSelf: "flex-start",
+    marginTop: 6,
   },
   textBotao: {
     color: "#fff",
     fontSize: 16,
     fontWeight: "500",
+  },
+  voltarBotao: {
+    backgroundColor: "#8B5E3C",
+    paddingVertical: 14,
+    paddingHorizontal: 28,
+    borderRadius: 8,
+    marginTop: 32,
+    alignSelf: "center",
   },
 });
