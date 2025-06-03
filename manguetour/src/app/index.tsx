@@ -30,7 +30,6 @@ export default function Home() {
 
   return (
     <View style={styles.container}>
-      {}
       <View style={styles.navbar}>
         <Pressable onPress={() => router.push("/")} style={styles.navItem}>
           <Text style={styles.navText}>Home</Text>
@@ -46,26 +45,28 @@ export default function Home() {
         </Pressable>
       </View>
 
-      <Text style={styles.title}>MangueTour</Text>
-      <Text style={styles.subtitle}>Uma jornada cultural pelo Recife</Text>
-      <Text style={styles.description}>
-        Descubra os pontos emblemáticos do movimento manguebeat e explore a arte,
-        música e história dessa cultura única.
-      </Text>
+      <View style={styles.content}>
+        <Text style={styles.title}>MangueTour</Text>
+        <Text style={styles.subtitle}>Uma jornada cultural pelo Recife</Text>
+        <Text style={styles.description}>
+          Descubra os pontos emblemáticos do movimento manguebeat e explore a arte,
+          música e história dessa cultura única.
+        </Text>
 
-      <Pressable
-        onPress={() => router.push("/locais")}
-        style={({ pressed }) => [styles.button, pressed && { opacity: 0.8 }]}
-      >
-        <Text style={styles.buttonText}>Explorar Locais</Text>
-      </Pressable>
+        <Pressable
+          onPress={() => router.push("/locais")}
+          style={({ pressed }) => [styles.button, pressed && { opacity: 0.8 }]}
+        >
+          <Text style={styles.buttonText}>Explorar Locais</Text>
+        </Pressable>
 
-      <Pressable
-        onPress={() => router.push("/sobre")}
-        style={({ pressed }) => [styles.linkButton, pressed && { opacity: 0.6 }]}
-      >
-        <Text style={styles.linkButtonText}>Sobre o MangueTour</Text>
-      </Pressable>
+        <Pressable
+          onPress={() => router.push("/sobre")}
+          style={({ pressed }) => [styles.linkButton, pressed && { opacity: 0.6 }]}
+        >
+          <Text style={styles.linkButtonText}>Sobre o MangueTour</Text>
+        </Pressable>
+      </View>
 
       {/* Caixa de Login/Cadastro */}
       {mostrarLogin && (
@@ -140,12 +141,12 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#FAFAFA",
     alignItems: "center",
-    paddingTop: 80,
+    paddingTop: 140, 
     paddingHorizontal: 24,
   },
   navbar: {
     position: "absolute",
-    top: 0,
+    top: 60, 
     width: "100%",
     backgroundColor: "#8B5E3C",
     flexDirection: "row",
@@ -153,6 +154,7 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
     paddingHorizontal: 24,
     zIndex: 10,
+    borderRadius: 12,
   },
   navItem: {
     paddingHorizontal: 8,
@@ -167,6 +169,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 6,
+  },
+  content: {
+    alignItems: "center",
+    marginTop: 20, // move todo o conteúdo mais para baixo
   },
   title: {
     fontSize: 40,
@@ -212,7 +218,7 @@ const styles = StyleSheet.create({
   },
   loginBoxContainer: {
     position: "absolute",
-    top: 100,
+    top: 140, // ajustado conforme o novo topo da navbar
     right: 24,
     zIndex: 20,
   },
