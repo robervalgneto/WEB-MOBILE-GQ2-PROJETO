@@ -42,6 +42,19 @@ export default function Locais() {
 
   return (
     <View style={styles.container}>
+      {/* Nav Bar */}
+      <View style={styles.navbar}>
+        <Pressable onPress={() => router.push("/")}>
+          <Text style={styles.navText}>Home</Text>
+        </Pressable>
+        <Pressable onPress={() => router.push("/locais")}>
+          <Text style={styles.navText}>Locais</Text>
+        </Pressable>
+        <Pressable onPress={() => router.push("/sobre")}>
+          <Text style={styles.navText}>Sobre</Text>
+        </Pressable>
+      </View>
+
       <FlatList
         data={pontosTuristicos}
         keyExtractor={(item) => item.id}
@@ -67,12 +80,21 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    padding: 24,
+    paddingTop: 48,
+  },
+  navbar: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    backgroundColor: "#8B5E3C",
+    paddingVertical: 12,
+  },
+  navText: {
+    color: "#fff",
+    fontSize: 16,
+    fontWeight: "600",
   },
   listContent: {
-    flexGrow: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    paddingHorizontal: 24,
     paddingBottom: 40,
   },
   itemContainer: {
