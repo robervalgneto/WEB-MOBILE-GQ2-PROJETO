@@ -29,7 +29,7 @@ O projeto inclui:
 
 - [Repositório no GitHub](https://)  
 - [App Publicado no Expo](https://)  
-- [Vídeo de Apresentação]([https://)  
+- [Vídeo de Apresentação](https://)  
 - [PDF da Apresentação](https://)
 
 ---
