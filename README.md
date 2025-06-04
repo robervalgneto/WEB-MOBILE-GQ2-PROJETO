@@ -1,6 +1,6 @@
 # PROGRAMAÇÃO WEB MOBILE
 
-[NOME DO APP]
+[MANGUETOUR-MOBILE]
 
 ## Projeto:
 
