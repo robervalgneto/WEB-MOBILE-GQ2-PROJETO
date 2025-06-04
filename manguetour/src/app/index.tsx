@@ -1,13 +1,5 @@
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  Pressable,
-  StyleSheet,
-  TextInput,
-  KeyboardAvoidingView,
-  Platform,
-} from "react-native";
+import {View,Text, Pressable, StyleSheet,TextInput, KeyboardAvoidingView, Platform, } from "react-native";
 import { useRouter } from "expo-router";
 
 export default function Home() {
