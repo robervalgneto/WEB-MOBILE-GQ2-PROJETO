@@ -172,7 +172,7 @@ const styles = StyleSheet.create({
   },
   content: {
     alignItems: "center",
-    marginTop: 20, // move todo o conteúdo mais para baixo
+    marginTop: 20, 
   },
   title: {
     fontSize: 40,
@@ -218,7 +218,7 @@ const styles = StyleSheet.create({
   },
   loginBoxContainer: {
     position: "absolute",
-    top: 140, // ajustado conforme o novo topo da navbar
+    top: 140, 
     right: 24,
     zIndex: 20,
   },
