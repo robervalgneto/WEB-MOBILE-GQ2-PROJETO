@@ -7,11 +7,14 @@ export default function Sobre() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Sobre o MangueTour</Text>
-      <Text style={styles.description}>
-        O MangueTour é uma plataforma interativa que conecta você às raízes culturais do Recife. 
-        Através de pontos turísticos icônicos e da influência do movimento manguebeat, 
-        oferece um mergulho na história, arte e resistência que moldaram a cidade.
-      </Text>
+
+      <View style={styles.descriptionBox}>
+        <Text style={styles.description}>
+          O MangueTour é uma plataforma interativa que conecta você às raízes culturais do Recife. 
+          Através de pontos turísticos icônicos e da influência do movimento manguebeat, 
+          oferece um mergulho na história, arte e resistência que moldaram a cidade.
+        </Text>
+      </View>
 
       <Pressable
         onPress={() => router.back()}
@@ -41,12 +44,17 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "#5C3A21",
   },
+  descriptionBox: {
+    backgroundColor: "#8B5E3C",
+    padding: 20,
+    borderRadius: 12,
+    marginBottom: 32,
+    maxWidth: 380,
+  },
   description: {
     fontSize: 16,
     textAlign: "center",
-    color: "#444",
-    marginBottom: 32,
-    maxWidth: 360,
+    color: "#fff",
   },
   button: {
     backgroundColor: "#8B5E3C",
